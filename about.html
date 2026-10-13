@@ -13,7 +13,169 @@
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/overrides.css">
-  <link rel="stylesheet" href="assets/css/about.css">
+  <!-- About page styles are embedded so replacing this single HTML file is enough. -->
+  <style>
+/* About-page-only layout and type adjustments. Kept separate so other pages stay unchanged. */
+.about-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: clamp(25px, 3.4vw, 44px);
+  min-height: 515px;
+  padding-top: 68px;
+  padding-bottom: 85px;
+}
+
+.about-hero .hero-copy { min-width: 0; }
+.about-hero .hero-copy .eyebrow { margin: 0 0 22px; }
+.about-hero h1 {
+  font-size: clamp(45px, 5vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -.067em;
+  margin: 0 0 26px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.about-role {
+  font-size: clamp(21px, 2.3vw, 27px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.038em;
+  max-width: 510px;
+  margin: 0 0 9px;
+}
+.about-university {
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -.022em;
+  color: #4b6a51;
+  margin: 0;
+}
+.about-tagline {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 360px;
+  margin: 24px 0 0;
+}
+.about-hero .hero-actions { margin-top: 23px; }
+.about-hero-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 146px;
+  gap: 22px;
+  width: 100%;
+  max-width: none;
+  align-items: center;
+  justify-self: stretch;
+}
+.about-photo { min-width: 0; }
+.about-hero-visual .portrait-frame { height: 365px; }
+.about-social {
+  min-width: 0;
+  align-self: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0 8px;
+}
+.about-social-heading {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  margin: 0 0 13px;
+}
+.about-social-links { display: grid; gap: 4px; }
+.about-social-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.35;
+  transition: color .2s ease;
+}
+.about-social-links a:hover,
+.about-social-links a:focus-visible { color: var(--accent); }
+.about-social-links svg {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.about-social-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* More readable biography, with less visually dominant headings. */
+.about-intro { padding-top: 74px; padding-bottom: 88px; }
+.about-intro .section-label { font-size: 10px; }
+.about-intro .intro-content h2 {
+  font-size: clamp(30px, 3.3vw, 38px);
+  max-width: 670px;
+  line-height: 1.24;
+  letter-spacing: -.047em;
+}
+.about-intro .intro-columns { margin-top: 26px; gap: 36px; }
+.about-intro .intro-columns p {
+  font-size: 16px;
+  line-height: 1.88;
+  color: #47574c;
+}
+.about-intro .interest-list { margin-top: 34px; padding-top: 20px; }
+.about-intro .interest-list > span { font-size: 11px; }
+.about-intro .interest-list div { gap: 9px; }
+.about-intro .interest-list b {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 550;
+  color: #435b48;
+  background: var(--soft);
+  padding: 7px 10px;
+  border: 1px solid #dfe6de;
+  border-radius: 3px;
+}
+
+@media (max-width: 950px) {
+  .about-hero { grid-template-columns: 1fr; gap: 38px; padding-top: 60px; padding-bottom: 66px; }
+  .about-hero h1 { font-size: clamp(48px, 7vw, 62px); }
+  .about-role { font-size: clamp(22px, 3.2vw, 27px); max-width: 630px; }
+  .about-university { font-size: 20px; }
+  .about-hero-visual { max-width: 690px; grid-template-columns: minmax(0, 1fr) 165px; gap: 26px; }
+  .about-hero-visual .portrait-frame { height: 390px; }
+}
+
+@media (max-width: 600px) {
+  .about-hero { padding-top: 44px; padding-bottom: 60px; gap: 30px; }
+  .about-hero h1 { font-size: clamp(42px, 10vw, 58px); margin-bottom: 20px; }
+  .about-role { font-size: 23px; }
+  .about-university { font-size: 18px; }
+  .about-tagline { margin-top: 18px; }
+  .about-hero .hero-actions { flex-wrap: wrap; gap: 12px 23px; }
+  .about-hero-visual { grid-template-columns: minmax(0, 1fr) 135px; gap: 16px; }
+  .about-hero-visual .portrait-frame { height: 315px; }
+  .about-social-links a { font-size: 11px; gap: 7px; }
+  .about-social-links svg { width: 16px; height: 16px; }
+  .about-intro { padding-top: 58px; padding-bottom: 64px; }
+  .about-intro .intro-content h2 { font-size: 32px; }
+  .about-intro .intro-columns { gap: 19px; }
+  .about-intro .intro-columns p { font-size: 16px; }
+  .about-intro .interest-list { margin-top: 27px; }
+}
+
+@media (max-width: 450px) {
+  .about-hero-visual { grid-template-columns: 1fr; gap: 22px; }
+  .about-hero-visual .portrait-frame { height: 340px; }
+  .about-social { padding: 14px 0 12px; }
+  .about-social-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 10px; }
+  .about-social-links a { font-size: 13px; }
+  .about-social-heading { margin-bottom: 8px; }
+}
+
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
