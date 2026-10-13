@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Graduation cap">
+  <rect x="1" y="1" width="46" height="46" rx="10" fill="#f6f7f3"/>
+  <g fill="#435c50">
+    <path d="M24 8 45 18.5 24 29 3 18.5 24 8Z"/>
+    <path d="M11 22.5 24 29l13-6.5v8.1c0 1.4-.8 2.7-2 3.4l-7.9 4.3a6.6 6.6 0 0 1-6.2 0L13 34a3.9 3.9 0 0 1-2-3.4v-8.1Z"/>
+    <path d="M42.5 19.5h1.8v11.8h-1.8z"/>
+    <circle cx="43.4" cy="34" r="2.1"/>
+  </g>
+</svg>
